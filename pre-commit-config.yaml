@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trailing Whitespace
+        description: Remove trailing whitespace in files
+      - id: check-yaml
+        name: Check YAML
+        description: Validate YAML files for syntax errors
+      - id: check-added-large-files
+        name: Check Added Large Files
+        description: Prevent adding large files to the repository
+      - id: end-of-file-fixer
+        name: End of File Fixer
+        description: Ensure files end with a newline
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.83.5
+    hooks:
+      - id: terraform_fmt
+        name: Terraform Fmt
+        description: Format Terraform files using `terraform fmt`
+      - id: terraform_validate
+        name: Terraform Validate
+        description: Validate Terraform files using `terraform validate`
+      - id: terraform_docs
+        name: Terraform Docs
+        description: Generate documentation for Terraform modules
+        args:
+          - --hook-config=--path-to-file=README.md
+          - --hook-config=--create-file-if-not-exists=true
+          - --hook-config=--add-to-existing-file=true
